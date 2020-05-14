@@ -1,0 +1,25 @@
+<h2>Robot Stack</h2>
+<div class="container">
+<form [formGroup]="robotStackForm" novalidate>
+    <div class="row">
+      <div class="col-25">
+          <label for="roboValue">Enter the Value</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="roboValue"  formControlName="roboValue">
+        <div class="hmti-errorMessage" *ngIf="robotStackForm.controls.roboValue.errors?.required && (robotStackForm.controls.roboValue.dirty || robotStackForm.controls.roboValue.touched)">
+        Value is required.
+        </div>
+        <div class="hmti-errorMessage" *ngIf="robotStackForm.controls.roboValue.errors?.pattern && (robotStackForm.controls.roboValue.dirty || robotStackForm.controls.roboValue.touched)">
+          No empty space allowed.
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <button class="hmti-btn" (click)="sendValues()" [disabled]="!robotStackForm.valid">Submit </button>
+      <button class="hmti-btn1" (click)="clearValues()">Clear </button>
+    </div>
+  </form>
+  <span>{{outputData}}</span>
+</div>
